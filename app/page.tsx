@@ -98,13 +98,16 @@ export default function Home() {
     : '1.0.dev';
 
   return (
-    <div className="flex flex-col h-dvh" style={{ background: 'var(--bg-primary)' }}>
+    <div className="flex flex-col h-dvh">
       {/* Header */}
-      <header className="glass-header sticky top-0 z-30 flex items-center justify-between px-4" style={{ height: 'var(--header-height)' }}>
+      <header
+        className="glass-header sticky top-0 z-30 flex items-center justify-between px-4"
+        style={{ height: 'var(--header-height)' }}
+      >
         <div className="flex items-center gap-3">
           <div
-            className="w-9 h-9 rounded-full flex items-center justify-center"
-            style={{ background: 'var(--accent-primary)' }}
+            className="w-10 h-10 rounded-full flex items-center justify-center shadow-md"
+            style={{ background: 'linear-gradient(135deg, var(--color-wine-700), var(--color-wine-900))' }}
           >
             <span className="text-white text-lg">{'\uD83C\uDF77'}</span>
           </div>
@@ -125,6 +128,7 @@ export default function Home() {
               style={{
                 fontSize: 'var(--font-size-xs)',
                 color: 'var(--text-secondary)',
+                letterSpacing: '0.02em',
               }}
             >
               AI Concierge
@@ -134,7 +138,7 @@ export default function Home() {
 
         <button
           onClick={() => setSettingsOpen(true)}
-          className="p-2 rounded-lg hover:opacity-70 transition-opacity"
+          className="p-2 rounded-xl hover:opacity-70 transition-opacity"
           style={{ color: 'var(--text-secondary)' }}
           aria-label="Open settings"
         >
@@ -147,19 +151,19 @@ export default function Home() {
       </header>
 
       {/* Messages Area */}
-      <main
-        className="flex-1 overflow-y-auto"
-        style={{ paddingTop: '16px', paddingBottom: '16px' }}
-      >
-        <div className="space-y-4" style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}>
+      <main className="flex-1 overflow-y-auto py-4">
+        <div
+          className="space-y-4"
+          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
+        >
           {/* Welcome Message */}
           {messages.length === 0 && (
-            <div className="px-4 py-6 text-center">
-              <div className="mb-4">
-                <span className="text-4xl">{'\uD83C\uDF77'}</span>
+            <div className="px-4 py-8 text-center">
+              <div className="mb-5">
+                <span className="text-5xl">{'\uD83C\uDF77'}</span>
               </div>
               <h2
-                className="mb-2"
+                className="mb-3"
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'var(--font-size-2xl)',
@@ -170,11 +174,11 @@ export default function Home() {
                 Welcome to the 30A Wine Festival
               </h2>
               <p
-                className="max-w-md mx-auto mb-6"
+                className="max-w-md mx-auto mb-8"
                 style={{
                   fontSize: 'var(--font-size-sm)',
                   color: 'var(--text-secondary)',
-                  lineHeight: 1.6,
+                  lineHeight: 1.7,
                 }}
               >
                 I&apos;m your AI concierge for the 14th Annual 30A Wine Festival
@@ -216,7 +220,7 @@ export default function Home() {
           {error && (
             <div className="px-4">
               <div
-                className="rounded-lg px-4 py-3 text-sm"
+                className="rounded-2xl px-4 py-3 text-sm"
                 style={{
                   background: 'var(--badge-soldout-bg)',
                   color: 'var(--badge-soldout-text)',
@@ -234,17 +238,12 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Input Area */}
-      <div
-        className="sticky bottom-0 z-20 px-4 pt-2 pb-3 safe-bottom"
-        style={{
-          background: 'var(--bg-primary)',
-          borderTop: '1px solid var(--border-subtle)',
-        }}
-      >
+      {/* Input Area — Glassmorphism bar */}
+      <div className="sticky bottom-0 z-20 px-4 pt-3 pb-3 safe-bottom input-bar-glass">
         <form
           onSubmit={handleSubmit}
-          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }} className=" flex items-end gap-2"
+          className="flex items-end gap-2"
+          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
         >
           <textarea
             ref={inputRef}
@@ -272,7 +271,10 @@ export default function Home() {
         </form>
 
         {/* Footer */}
-        <div style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }} className=" mt-2 text-center footer-text">
+        <div
+          className="mt-2 text-center footer-text"
+          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
+        >
           <span>
             Benefiting{' '}
             <a href="https://www.30awinefestival.com" target="_blank" rel="noopener noreferrer">
