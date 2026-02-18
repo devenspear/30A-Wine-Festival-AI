@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ['ai', '@ai-sdk/anthropic', '@ai-sdk/react', 'framer-motion'],
+    optimizePackageImports: ['ai', '@ai-sdk/openai', '@ai-sdk/react', 'framer-motion'],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,

@@ -1,8 +1,8 @@
 # Product Requirements Document
 # 30A Wine Festival AI Concierge
 
-**Version:** 1.0.0
-**Date:** February 17, 2026
+**Version:** 1.0.9
+**Date:** February 18, 2026 (updated)
 **Author:** Deven Spear + Claude Opus 4.6
 **Client:** Alys Beach (The Alys Foundation)
 **Event:** 14th Annual 30A Wine Festival
@@ -13,15 +13,18 @@
 
 ## 1. Executive Summary
 
-Build an AI-powered concierge chatbot for the 30A Wine Festival at Alys Beach, Florida. The chatbot will serve as an intelligent guide for ~1,000 attendees, answering questions about the schedule, events, venues, tickets, logistics, dress code, parking, and more.
+Build an AI-powered concierge chatbot for the 30A Wine Festival at Alys Beach, Florida. The chatbot will serve as an intelligent guide for ~1,000 attendees, answering questions about the schedule, events, venues, tickets, logistics, dress code, parking, weather, dining, transportation, and more.
 
 This is an evolution of the **Crafted AI Chatbot** (craftedai.web0101.com) built for the CRAFTED 2025 event in November 2025. The new version incorporates significant architectural improvements:
 
 - **True vector search** replacing keyword-based text matching
-- **Agentic RAG** with specialized tools instead of one-size-fits-all search
+- **Agentic RAG** with 5 specialized tools (schedule, venues, FAQ, general, weather)
 - **Hybrid search** (vector + BM25) for proper noun accuracy
 - **OpenAI GPT-4o Mini** replacing Claude 3.5 Haiku (switched due to Anthropic API billing limits)
+- **Live weather integration** via Open-Meteo API (free, no key required)
+- **Expanded concierge scope** — answers area questions (dining, hotels, airports, rideshare, 30A activities)
 - **Rich UI** with event cards, streaming responses, and contextual suggestions
+- **Phone frame UI** — desktop/tablet browsers see the chat inside a realistic smartphone frame
 - **Modern, beautiful design** reflecting Alys Beach's Mediterranean luxury aesthetic
 
 ---
@@ -80,7 +83,7 @@ The Crafted AI chatbot was built in December 2025 for CRAFTED 2025 at Alys Beach
 
 ```
 Frontend (Vercel Edge)
-├── Next.js 16 (App Router)
+├── Next.js 15 (App Router)
 ├── React 19
 ├── Tailwind CSS 4
 ├── Vercel AI SDK (useChat + streaming)
@@ -109,34 +112,40 @@ Instead of a single RAG pipeline, the LLM has access to specialized tools and de
 
 ```
 User: "What time is the Gospel Brunch?"
-  → Claude calls: searchSchedule("Gospel Brunch")
+  → GPT-4o Mini calls: searchSchedule("Gospel Brunch")
   → Returns: structured event data (time, venue, price, status)
-  → Claude formats: natural language response with event card
+  → GPT-4o Mini formats: natural language response
 
 User: "What should I wear to the Grand Tasting?"
-  → Claude calls: searchFAQ("dress code Grand Tasting")
+  → GPT-4o Mini calls: searchFAQ("dress code Grand Tasting")
   → Returns: dress code guidelines for Saturday
-  → Claude formats: friendly style advice
+  → GPT-4o Mini formats: friendly style advice
 
 User: "Tell me about the charity"
-  → Claude calls: searchGeneral("charity beneficiary CVHN")
-  → Returns: CVHN mission, impact stats, Tyler's story
-  → Claude formats: heartfelt description with key stats
+  → GPT-4o Mini calls: searchGeneral("charity beneficiary CVHN")
+  → Returns: CVHN mission, impact stats
+  → GPT-4o Mini formats: heartfelt description with key stats
 
-User: "What's still available?"
-  → Claude calls: searchSchedule("available tickets")
-  → Returns: all events with availability status
-  → Claude formats: summary table showing sold out vs available
+User: "What's the weather like?"
+  → GPT-4o Mini calls: searchWeather("current weather")
+  → Returns: live temperature, conditions, 5-day forecast from Open-Meteo API
+  → GPT-4o Mini formats: friendly weather summary with outfit advice
+
+User: "Where should I eat nearby?"
+  → GPT-4o Mini calls: searchGeneral("restaurants dining near Alys Beach")
+  → Returns: curated list of nearby restaurants from area knowledge data
+  → GPT-4o Mini formats: personalized dining recommendations
 ```
 
 **Tool Definitions:**
 
 | Tool | Purpose | Data Source |
 |------|---------|-------------|
-| `searchSchedule` | Event times, dates, venues, prices, availability | Structured event data |
-| `searchVenues` | Venue descriptions, locations, directions | Venue metadata |
-| `searchFAQ` | Logistics, parking, dress code, policies, weather | FAQ content chunks |
-| `searchGeneral` | General info, history, charity, sponsors, participants | Full vector search |
+| `searchSchedule` | Event times, dates, venues, prices, availability | Structured event data (JSON) |
+| `searchVenues` | Venue descriptions, locations, directions | Venue metadata (JSON) |
+| `searchFAQ` | Logistics, parking, dress code, policies | FAQ content (JSON + keyword scoring) |
+| `searchGeneral` | History, charity, dining, hotels, transportation, area activities | Vector search + area knowledge data |
+| `searchWeather` | Live weather conditions and 5-day forecast | Open-Meteo API (free, no key) |
 
 ### 4.3 Vector Database (Upstash Vector)
 
@@ -298,7 +307,7 @@ This powers the `searchSchedule` tool directly (no embedding needed for structur
 #### F1: Streaming AI Chat
 - Real-time token-by-token streaming responses
 - OpenAI GPT-4o Mini as the LLM
-- Agentic RAG with 4 specialized tools
+- Agentic RAG with 5 specialized tools (schedule, venues, FAQ, general, weather)
 - Conversation history maintained per session
 - Max 50 messages per session
 
@@ -330,12 +339,15 @@ This powers the `searchSchedule` tool directly (no embedding needed for structur
 - Builds trust and drives traffic to the official site
 - Format: `[1] 30awinefestival.com/events/grand-tasting`
 
-#### F6: Mobile-First Design
+#### F6: Mobile-First Design with Desktop Phone Frame
 - Primary use case: attendees on phones at the venue
 - Touch-optimized input and buttons
 - No horizontal scrolling
 - Fast load on 4G/LTE
 - iOS safe area handling (notch, home indicator)
+- **Desktop/Tablet:** Chat UI rendered inside a realistic smartphone frame (Dynamic Island notch, rounded bezels) centered on a dark wine/gold gradient background
+- **Mobile (< 768px):** Full-screen UI with no frame
+- Breakpoints: 768px+ shows phone frame, 1200px+ slightly larger frame
 
 #### F7: Rate Limiting
 - 20 requests/minute per IP (chat)
@@ -356,10 +368,12 @@ This powers the `searchSchedule` tool directly (no embedding needed for structur
 - Highlight Tapas & Tequila as the only available event
 - Suggest contacting events@alysbeach.com for waitlist inquiries
 
-#### F10: Weather Integration
-- Fetch current/forecast weather for Alys Beach area
-- Proactively mention weather when answering logistics questions
-- "It's expected to be 68F and sunny tomorrow — perfect for the outdoor Grand Tasting"
+#### F10: Weather Integration (IMPLEMENTED)
+- Live weather via Open-Meteo API (free, no API key required)
+- `searchWeather` tool fetches real-time conditions + 5-day forecast for Alys Beach (30.3685°N, 86.0467°W)
+- Returns: temperature (°F), feels-like, conditions, humidity, wind speed/gusts, precipitation probability, sunrise/sunset
+- Gracefully degrades to general climate info if API is unavailable
+- AI proactively mentions weather when answering logistics or outdoor event questions
 
 #### F11: Venue Map Link
 - When mentioning a venue, include a link to the map page
@@ -379,7 +393,7 @@ This powers the `searchSchedule` tool directly (no embedding needed for structur
 
 #### F14: Multi-Language Support
 - Spanish and French translation for international attendees
-- Claude handles this natively, just needs system prompt instruction
+- GPT-4o Mini handles this natively, just needs system prompt instruction
 
 #### F15: Feedback Collection
 - Thumbs up/down on each response
@@ -405,11 +419,14 @@ PERSONALITY:
 - Occasionally mention the charitable mission (CVHN) when natural
 
 KNOWLEDGE BOUNDARIES:
-- ONLY answer questions about the 30A Wine Festival, Alys Beach, and related logistics
-- If asked about unrelated topics, politely redirect: "I'm your 30A Wine Festival
-  concierge — I'd love to help with anything about the festival, events, or Alys Beach!"
-- Never fabricate information. If unsure, say so and suggest contacting
+- Primary expertise: the 30A Wine Festival, Alys Beach, and related logistics
+- Also answers related attendee questions: weather, nearby restaurants, hotels,
+  airports, Uber/Lyft, things to do on 30A, and general area information
+- Uses searchWeather tool for live weather, searchGeneral for area knowledge
+- Only redirects completely unrelated topics (politics, coding help, etc.)
+- Never fabricates specific details. If unsure, suggests contacting
   events@alysbeach.com or calling (850) 745-2951
+- May use general knowledge about 30A/NW Florida to supplement tool results
 
 RESPONSE FORMAT:
 - Keep responses concise (2-4 sentences for simple questions, more for detailed ones)
@@ -514,9 +531,10 @@ Note: Per Mr. Spear's preference, no serif fonts for body text. Playfair Display
 - Theme transition: smooth color crossfade
 
 ### 8.6 Responsive Breakpoints
-- **Mobile (default):** 320-767px — single column, full-width cards
-- **Tablet:** 768-1023px — slightly wider chat area, same layout
-- **Desktop:** 1024px+ — centered chat container (max 720px), subtle background pattern
+- **Mobile (default):** 320-767px — full-screen chat UI, no frame
+- **Tablet:** 768-1199px — chat inside phone frame (390px wide), dark gradient background with wine/gold ambient lighting
+- **Desktop:** 1200px+ — slightly larger phone frame (420px wide), same dark gradient background
+- Phone frame includes Dynamic Island notch, rounded bezels (50px border-radius), and realistic device shadow
 
 ---
 
@@ -586,16 +604,21 @@ Per CLAUDE.md mandatory rules:
 
 ### 11.2 Verification Checklist
 Before launch:
-- [ ] Query every event by name — correct details returned?
-- [ ] Ask "What's happening [day]?" for each day — correct schedule?
-- [ ] Ask about sold out events — correctly shows SOLD OUT?
-- [ ] Ask about Tapas & Tequila — correctly shows AVAILABLE?
-- [ ] Ask dress code questions — correct per-event guidance?
-- [ ] Ask about parking — correct directions?
-- [ ] Ask about CVHN — accurate stats?
-- [ ] Ask unrelated question — properly redirected?
+- [x] Query every event by name — correct details returned?
+- [x] Ask "What's happening [day]?" for each day — correct schedule?
+- [x] Ask about sold out events — correctly shows SOLD OUT?
+- [x] Ask about Tapas & Tequila — correctly shows AVAILABLE?
+- [x] Ask dress code questions — correct per-event guidance?
+- [x] Ask about parking — correct directions?
+- [x] Ask about CVHN — accurate stats?
+- [x] Ask unrelated question — properly redirected?
 - [ ] Mobile test on iPhone — layout correct, no cropping?
 - [ ] Rate limit test — hits limit at 20 req/min?
+- [x] Ask "What's the weather?" — returns live data from Open-Meteo?
+- [x] Ask "Where should I eat?" — returns nearby restaurant recommendations?
+- [x] Ask "How do I get there?" — returns airport/transportation info?
+- [ ] Desktop test — phone frame displays correctly?
+- [x] API error handling — billing/quota errors show friendly message?
 
 ### 11.3 Content Gaps
 These items could not be scraped from the Wix site and need manual verification or Playwright scraping:
@@ -620,13 +643,14 @@ These items could not be scraped from the Wix site and need manual verification 
 | Upstash Vector | $0 | Free tier (10K vectors) |
 | Upstash Redis (rate limit) | $0 | Free tier |
 | Vercel KV | $0 | Free tier |
-| **Total** | **~$5-35/mo** | Primarily LLM API costs |
+| Open-Meteo (weather) | $0 | Free API, no key required |
+| **Total** | **~$2-30/mo** | Primarily LLM API costs |
 
 ### 12.2 Per-Message Cost
-- Embedding query: ~$0.00001
 - OpenAI GPT-4o Mini (input + output): ~$0.001-0.003
-- Vector search: $0 (included in free tier)
-- **Total per message: ~$0.01**
+- Weather API call (if triggered): $0
+- Vector search (if triggered): $0 (included in free tier)
+- **Total per message: ~$0.003**
 
 ---
 
@@ -636,10 +660,11 @@ These items could not be scraped from the Wix site and need manual verification 
 |------|-----------|--------|------------|
 | Wix scraping fails | Medium | High | Supplementary data already gathered from 15+ third-party sources |
 | Inaccurate event info | Low | High | Verification checklist, source citations, contact fallback |
-| API rate limits hit | Low | Medium | Upstash rate limiting, graceful error messages |
+| API rate/billing limits hit | Medium | High | **Lesson learned:** Anthropic key hit billing limit on launch day. Switched to OpenAI. Error handling now catches billing errors and shows user-friendly 503 message. |
 | High traffic spike | Low | Medium | Vercel Edge scales automatically, Upstash serverless |
 | Content gaps | Medium | Medium | Direct to official site, provide phone number |
 | Festival changes (cancellation, time change) | Low | High | Admin can update structured data and re-ingest |
+| Weather API unavailable | Low | Low | Graceful fallback to general climate info for Alys Beach area |
 
 ---
 
@@ -665,16 +690,17 @@ These items could not be scraped from the Wix site and need manual verification 
 │   └── TypingIndicator.tsx         # Loading animation
 ├── lib/
 │   ├── tools/
-│   │   ├── search-schedule.ts     # Schedule lookup tool
-│   │   ├── search-venues.ts       # Venue search tool
-│   │   ├── search-faq.ts          # FAQ search tool
-│   │   └── search-general.ts      # General vector search tool
+│   │   ├── index.ts               # Tool registry (exports all 5 tools)
+│   │   ├── search-schedule.ts     # Schedule lookup tool (keyword + structured)
+│   │   ├── search-venues.ts       # Venue search tool (keyword + inline data)
+│   │   ├── search-faq.ts          # FAQ search tool (keyword scoring)
+│   │   ├── search-general.ts      # General vector search tool (Upstash Vector)
+│   │   └── search-weather.ts      # Live weather tool (Open-Meteo API)
 │   ├── vector-store.ts            # Upstash Vector client
-│   ├── embeddings.ts              # OpenAI embedding helper
-│   ├── system-prompt.ts           # System prompt builder
-│   ├── event-data.ts              # Structured event data
-│   ├── analytics.ts               # Vercel KV analytics
-│   ├── rate-limit.ts              # Upstash rate limiting
+│   ├── config.ts                  # App configuration (model, limits, contacts)
+│   ├── system-prompt.ts           # Dynamic system prompt builder
+│   ├── analytics.ts               # Upstash Redis analytics tracking
+│   ├── rate-limit.ts              # Upstash rate limiting (sliding window)
 │   └── kv-client.ts               # KV Redis client
 ├── scripts/
 │   ├── scrape.ts                  # Playwright scraper for Wix site
@@ -682,11 +708,10 @@ These items could not be scraped from the Wix site and need manual verification 
 │   ├── verify.ts                  # Data verification queries
 │   └── combine-data.ts            # Data merging/transformation
 ├── data/
-│   ├── events.json                # Structured event data
-│   ├── venues.json                # Venue information
-│   ├── faq.json                   # FAQ content
-│   ├── scraped/                   # Raw scraped content
-│   └── supplementary/             # Third-party gathered data
+│   ├── events.json                # 8 festival events (structured)
+│   ├── venues.json                # 7 venue locations
+│   ├── faq.json                   # 21 FAQ entries
+│   └── general.json               # 13 entries (about, charity, dining, hotels, airports, rideshare, activities)
 ├── public/
 │   ├── favicon.ico
 │   └── og-image.png               # Social share image
@@ -712,18 +737,18 @@ These items could not be scraped from the Wix site and need manual verification 
 
 ---
 
-## 16. Approval
+## 16. Change Log
 
-This PRD is ready for Mr. Spear's review and approval. Upon approval, development begins immediately with the goal of launching before or during the first day of the festival (February 18, 2026).
-
-**Key decisions needed:**
-- [ ] Approve architecture (Agentic RAG + Upstash Vector + Sonnet 4.6)
-- [ ] Approve color palette and design direction
-- [ ] Confirm domain/URL for deployment
-- [ ] Confirm which content gaps are acceptable vs. must-fix
-- [ ] Approve launch timeline
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | Feb 17, 2026 | Initial PRD and architecture |
+| 1.0.5 | Feb 18, 2026 | Launch day deployment with Claude 3.5 Haiku |
+| 1.0.6 | Feb 18, 2026 | **Emergency fix:** Switched from Anthropic to OpenAI GPT-4o Mini (Anthropic API billing limit hit) |
+| 1.0.7 | Feb 18, 2026 | Improved error handling for API failures (billing, quota, rate limit → user-friendly 503) |
+| 1.0.8 | Feb 18, 2026 | Added live weather tool (Open-Meteo), 6 area knowledge entries (dining, hotels, airports, rideshare, activities), loosened AI boundaries to answer attendee-related questions |
+| 1.0.9 | Feb 18, 2026 | Added smartphone frame for desktop/tablet browsers, fixed weather timezone display |
 
 ---
 
 *Document generated by Claude Opus 4.6 for Mr. Spear*
-*February 17, 2026*
+*February 17-18, 2026*
