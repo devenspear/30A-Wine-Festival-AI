@@ -11,26 +11,19 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 12, scale: 0.95 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
-  },
+  hidden: { opacity: 0, y: 8 },
+  show: { opacity: 1, y: 0 },
 };
 
 export default function SuggestedQuestions({ questions, onSelect }: SuggestedQuestionsProps) {
   return (
     <motion.div
-      className="grid grid-cols-2 gap-3 px-4"
+      className="grid grid-cols-2 gap-2.5 px-4"
       style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
       variants={container}
       initial="hidden"
@@ -40,15 +33,19 @@ export default function SuggestedQuestions({ questions, onSelect }: SuggestedQue
         <motion.button
           key={i}
           variants={item}
-          className="suggestion-card text-left px-4 py-4"
+          className="suggestion-card text-left"
+          style={{ padding: '14px 16px' }}
           onClick={() => onSelect(q.text)}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: 0.96 }}
         >
-          <span className="text-2xl block mb-1.5">{q.emoji}</span>
-          <span
-            className="text-sm leading-snug block"
-            style={{ color: 'var(--text-primary)', fontWeight: 500 }}
-          >
+          <span style={{ fontSize: '24px', display: 'block', marginBottom: '6px' }}>{q.emoji}</span>
+          <span style={{
+            fontSize: '14px',
+            lineHeight: '1.35',
+            fontWeight: 500,
+            color: 'var(--text-primary)',
+            display: 'block',
+          }}>
             {q.text}
           </span>
         </motion.button>

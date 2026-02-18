@@ -60,7 +60,6 @@ export default function Home() {
     }
   }, [messages.length]);
 
-  // Apply saved theme on mount
   useEffect(() => {
     const saved = localStorage.getItem('wine-ai-theme');
     if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -98,7 +97,7 @@ export default function Home() {
     : '1.0.dev';
 
   return (
-    <div className="flex flex-col h-dvh">
+    <div className="flex flex-col h-dvh" style={{ background: 'var(--bg-page)' }}>
       {/* Header */}
       <header
         className="glass-header sticky top-0 z-30 flex items-center justify-between px-4"
@@ -106,31 +105,33 @@ export default function Home() {
       >
         <div className="flex items-center gap-3">
           <div
-            className="w-10 h-10 rounded-full flex items-center justify-center shadow-md"
-            style={{ background: 'linear-gradient(135deg, var(--color-wine-700), var(--color-wine-900))' }}
+            className="flex items-center justify-center"
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '12px',
+              background: 'linear-gradient(135deg, var(--color-wine-700), var(--color-wine-900))',
+              boxShadow: '0 2px 8px rgba(139, 34, 82, 0.25)',
+            }}
           >
             <span className="text-white text-lg">{'\uD83C\uDF77'}</span>
           </div>
           <div>
-            <h1
-              className="leading-tight"
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'var(--font-size-lg)',
-                fontWeight: 700,
-                color: 'var(--text-primary)',
-              }}
-            >
+            <h1 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'var(--font-size-lg)',
+              fontWeight: 700,
+              color: 'var(--text-primary)',
+              lineHeight: 1.2,
+            }}>
               30A Wine Festival
             </h1>
-            <p
-              className="leading-tight"
-              style={{
-                fontSize: 'var(--font-size-xs)',
-                color: 'var(--text-secondary)',
-                letterSpacing: '0.02em',
-              }}
-            >
+            <p style={{
+              fontSize: '11px',
+              color: 'var(--text-secondary)',
+              letterSpacing: '0.04em',
+              fontWeight: 500,
+            }}>
               AI Concierge
             </p>
           </div>
@@ -138,52 +139,52 @@ export default function Home() {
 
         <button
           onClick={() => setSettingsOpen(true)}
-          className="p-2 rounded-xl hover:opacity-70 transition-opacity"
-          style={{ color: 'var(--text-secondary)' }}
+          className="flex items-center justify-center"
+          style={{
+            width: '36px',
+            height: '36px',
+            borderRadius: '10px',
+            color: 'var(--text-secondary)',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+          }}
           aria-label="Open settings"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="1" /><circle cx="12" cy="5" r="1" /><circle cx="12" cy="19" r="1" />
           </svg>
         </button>
       </header>
 
       {/* Messages Area */}
-      <main className="flex-1 overflow-y-auto py-4">
-        <div
-          className="space-y-4"
-          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
-        >
-          {/* Welcome Message */}
+      <main className="flex-1 overflow-y-auto" style={{ paddingTop: '20px', paddingBottom: '12px' }}>
+        <div style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}>
+          {/* Welcome */}
           {messages.length === 0 && (
-            <div className="px-4 py-8 text-center">
-              <div className="mb-5">
-                <span className="text-5xl">{'\uD83C\uDF77'}</span>
+            <div className="px-5 text-center" style={{ paddingTop: '32px', paddingBottom: '24px' }}>
+              <div style={{ marginBottom: '16px' }}>
+                <span style={{ fontSize: '48px' }}>{'\uD83C\uDF77'}</span>
               </div>
-              <h2
-                className="mb-3"
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'var(--font-size-2xl)',
-                  fontWeight: 700,
-                  color: 'var(--text-primary)',
-                }}
-              >
-                Welcome to the 30A Wine Festival
+              <h2 style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'var(--font-size-2xl)',
+                fontWeight: 700,
+                color: 'var(--text-primary)',
+                marginBottom: '10px',
+                lineHeight: 1.2,
+              }}>
+                Welcome to the<br />30A Wine Festival
               </h2>
-              <p
-                className="max-w-md mx-auto mb-8"
-                style={{
-                  fontSize: 'var(--font-size-sm)',
-                  color: 'var(--text-secondary)',
-                  lineHeight: 1.7,
-                }}
-              >
-                I&apos;m your AI concierge for the 14th Annual 30A Wine Festival
-                at Alys Beach. Ask me about events, schedules, venues, dress code,
-                or anything about the festival.
+              <p style={{
+                fontSize: 'var(--font-size-sm)',
+                color: 'var(--text-secondary)',
+                lineHeight: 1.6,
+                maxWidth: '340px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}>
+                Your AI concierge for the 14th Annual 30A Wine Festival at Alys Beach.
               </p>
             </div>
           )}
@@ -196,40 +197,48 @@ export default function Home() {
             />
           )}
 
-          {/* Chat Messages */}
-          {messages.map((msg) => (
-            <ChatMessage
-              key={msg.id}
-              role={msg.role as 'user' | 'assistant'}
-              content={msg.content}
-            />
-          ))}
+          {/* Messages */}
+          <div className="space-y-3">
+            {messages.map((msg) => (
+              <ChatMessage
+                key={msg.id}
+                role={msg.role as 'user' | 'assistant'}
+                content={msg.content}
+              />
+            ))}
+          </div>
 
-          {/* Follow-up suggestions after first exchange */}
+          {/* Follow-up */}
           {messages.length === 2 && !isLoading && (
-            <SuggestedQuestions
-              questions={FOLLOW_UP_SUGGESTIONS}
-              onSelect={handleSuggestionSelect}
-            />
+            <div style={{ marginTop: '16px' }}>
+              <SuggestedQuestions
+                questions={FOLLOW_UP_SUGGESTIONS}
+                onSelect={handleSuggestionSelect}
+              />
+            </div>
           )}
 
-          {/* Loading */}
-          {isLoading && <TypingIndicator />}
+          {/* Typing */}
+          {isLoading && (
+            <div style={{ marginTop: '12px' }}>
+              <TypingIndicator />
+            </div>
+          )}
 
           {/* Error */}
           {error && (
-            <div className="px-4">
-              <div
-                className="rounded-2xl px-4 py-3 text-sm"
-                style={{
-                  background: 'var(--badge-soldout-bg)',
-                  color: 'var(--badge-soldout-text)',
-                  border: '1px solid var(--badge-soldout-border)',
-                }}
-              >
+            <div className="px-4" style={{ marginTop: '12px' }}>
+              <div style={{
+                borderRadius: 'var(--radius-lg)',
+                padding: '12px 16px',
+                fontSize: 'var(--font-size-sm)',
+                background: 'var(--badge-soldout-bg)',
+                color: 'var(--badge-soldout-text)',
+                border: '1px solid var(--badge-soldout-border)',
+              }}>
                 {error.message.includes('429')
-                  ? "You're sending messages too quickly. Please wait a moment and try again."
-                  : 'Something went wrong. Please try again or contact events@alysbeach.com for help.'}
+                  ? "You're sending messages too quickly. Please wait a moment."
+                  : 'Something went wrong. Please try again or contact events@alysbeach.com.'}
               </div>
             </div>
           )}
@@ -238,11 +247,11 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Input Area — Glassmorphism bar */}
-      <div className="sticky bottom-0 z-20 px-4 pt-3 pb-3 safe-bottom input-bar-glass">
+      {/* Input Area */}
+      <div className="sticky bottom-0 z-20 safe-bottom input-bar" style={{ padding: '10px 16px 12px' }}>
         <form
           onSubmit={handleSubmit}
-          className="flex items-end gap-2"
+          className="flex items-end gap-2.5"
           style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
         >
           <textarea
@@ -252,8 +261,8 @@ export default function Home() {
             onKeyDown={handleKeyDown}
             placeholder="Ask about the festival..."
             rows={1}
-            className="chat-input flex-1 px-4 py-2.5 resize-none"
-            style={{ maxHeight: '120px', minHeight: '44px' }}
+            className="chat-input flex-1 resize-none"
+            style={{ maxHeight: '120px', minHeight: '44px', padding: '10px 18px' }}
             disabled={isLoading}
             autoFocus
           />
@@ -263,29 +272,30 @@ export default function Home() {
             disabled={isLoading || !input.trim()}
             aria-label="Send message"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="22" y1="2" x2="11" y2="13" />
               <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>
           </button>
         </form>
 
-        {/* Footer */}
         <div
-          className="mt-2 text-center footer-text"
-          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
+          className="text-center footer-text"
+          style={{
+            maxWidth: 'var(--chat-max-width)',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: '8px',
+          }}
         >
-          <span>
-            Benefiting{' '}
-            <a href="https://www.30awinefestival.com" target="_blank" rel="noopener noreferrer">
-              CVHN
-            </a>
-            {' '}| v{version}
-          </span>
+          Benefiting{' '}
+          <a href="https://www.30awinefestival.com" target="_blank" rel="noopener noreferrer">
+            CVHN
+          </a>
+          {' '}| v{version}
         </div>
       </div>
 
-      {/* Settings */}
       <SettingsMenu isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );

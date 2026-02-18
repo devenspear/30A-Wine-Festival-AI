@@ -13,17 +13,14 @@ export default function ChatMessage({ role, content }: ChatMessageProps) {
   return (
     <motion.div
       className={`flex ${isUser ? 'justify-end' : 'justify-start'} px-4`}
-      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
     >
-      <div
-        className={isUser ? 'chat-bubble-user' : 'chat-bubble-ai'}
-        style={{ padding: '12px 18px' }}
-      >
+      <div className={isUser ? 'chat-bubble-user' : 'chat-bubble-ai'}>
         <p
-          className="whitespace-pre-wrap leading-relaxed"
-          style={{ fontSize: 'var(--font-size-base)' }}
+          className="whitespace-pre-wrap"
+          style={{ fontSize: '15px', lineHeight: 1.55 }}
         >
           {content}
         </p>

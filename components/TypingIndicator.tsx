@@ -3,7 +3,7 @@
 export default function TypingIndicator() {
   return (
     <div className="flex items-start px-4 animate-message-in">
-      <div className="chat-bubble-ai px-5 py-3.5 flex items-center gap-1.5">
+      <div className="chat-bubble-ai" style={{ padding: '14px 20px', display: 'flex', alignItems: 'center', gap: '5px' }}>
         <span className="typing-dot" />
         <span className="typing-dot" />
         <span className="typing-dot" />
