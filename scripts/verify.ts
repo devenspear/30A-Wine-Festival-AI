@@ -113,7 +113,7 @@ async function main() {
   // --- Step 3: Verify configuration ---
   console.log('\n3. CONFIGURATION VERIFICATION\n');
 
-  const requiredEnvVars = ['ANTHROPIC_API_KEY'];
+  const requiredEnvVars = ['OPENAI_API_KEY'];
   const optionalEnvVars = [
     'UPSTASH_VECTOR_REST_URL',
     'UPSTASH_VECTOR_REST_TOKEN',

@@ -238,6 +238,8 @@ export default function Home() {
               }}>
                 {error.message.includes('429')
                   ? "You're sending messages too quickly. Please wait a moment."
+                  : error.message.includes('503') || error.message.includes('unavailable')
+                  ? 'The AI concierge is temporarily unavailable. Please try again in a few minutes.'
                   : 'Something went wrong. Please try again or contact events@alysbeach.com.'}
               </div>
             </div>

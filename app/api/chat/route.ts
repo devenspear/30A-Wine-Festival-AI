@@ -87,8 +87,27 @@ export async function POST(req: Request) {
       );
     }
 
+    // Detect API billing/quota errors
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    if (
+      errorMessage.includes('usage limit') ||
+      errorMessage.includes('quota') ||
+      errorMessage.includes('billing') ||
+      errorMessage.includes('insufficient_quota') ||
+      errorMessage.includes('rate_limit')
+    ) {
+      return new Response(
+        JSON.stringify({
+          error: `The AI concierge is temporarily unavailable due to high demand. Please try again in a few minutes, or contact ${config.CONTACT_EMAIL} for assistance.`,
+        }),
+        { status: 503, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     return new Response(
-      JSON.stringify({ error: 'An unexpected error occurred. Please try again.' }),
+      JSON.stringify({
+        error: `Something went wrong. Please try again, or contact ${config.CONTACT_EMAIL} for assistance.`,
+      }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

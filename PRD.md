@@ -20,7 +20,7 @@ This is an evolution of the **Crafted AI Chatbot** (craftedai.web0101.com) built
 - **True vector search** replacing keyword-based text matching
 - **Agentic RAG** with specialized tools instead of one-size-fits-all search
 - **Hybrid search** (vector + BM25) for proper noun accuracy
-- **Claude Sonnet 4.6** (released today) replacing Claude 3.5 Haiku
+- **OpenAI GPT-4o Mini** replacing Claude 3.5 Haiku (switched due to Anthropic API billing limits)
 - **Rich UI** with event cards, streaming responses, and contextual suggestions
 - **Modern, beautiful design** reflecting Alys Beach's Mediterranean luxury aesthetic
 
@@ -45,7 +45,7 @@ The Crafted AI chatbot was built in December 2025 for CRAFTED 2025 at Alys Beach
 |--------|----------------------|----------------------------------|
 | Search | Keyword matching (+100 exact, +10 keyword) | True vector embeddings + BM25 hybrid search |
 | Architecture | Monolithic RAG pipeline | Agentic RAG with specialized tools |
-| LLM | Claude 3.5 Haiku | Claude Sonnet 4.6 (Opus-level quality, Sonnet pricing) |
+| LLM | Claude 3.5 Haiku | OpenAI GPT-4o Mini (fast, cost-effective) |
 | Vector DB | None (JSON text search) | Upstash Vector (serverless, edge-native) |
 | Embeddings | None | OpenAI text-embedding-3-large (1536 dims) |
 | UI | Basic chat bubbles | Rich event cards, source citations, contextual suggestions |
@@ -87,7 +87,7 @@ Frontend (Vercel Edge)
 └── Framer Motion (animations)
 
 Backend (Vercel Serverless)
-├── Claude Sonnet 4.6 (via @ai-sdk/anthropic)
+├── OpenAI GPT-4o Mini (via @ai-sdk/openai)
 ├── Agentic RAG (tool-based retrieval)
 ├── Upstash Vector (hybrid search: vector + BM25)
 ├── OpenAI text-embedding-3-large (embeddings)
@@ -199,7 +199,7 @@ Reciprocal Rank Fusion (built into Upstash)
     ↓
 Top 5 results with metadata
     ↓
-Formatted context → Claude Sonnet 4.6
+Formatted context → OpenAI GPT-4o Mini
     ↓
 Streaming response to user
 ```
@@ -297,7 +297,7 @@ This powers the `searchSchedule` tool directly (no embedding needed for structur
 
 #### F1: Streaming AI Chat
 - Real-time token-by-token streaming responses
-- Claude Sonnet 4.6 as the LLM
+- OpenAI GPT-4o Mini as the LLM
 - Agentic RAG with 4 specialized tools
 - Conversation history maintained per session
 - Max 50 messages per session
@@ -374,7 +374,7 @@ This powers the `searchSchedule` tool directly (no embedding needed for structur
 
 #### F13: Photo Upload + Vision
 - Users can upload photos ("What venue is this?")
-- Claude Sonnet 4.6 vision capabilities for photo identification
+- GPT-4o vision capabilities for photo identification
 - Useful for wayfinding at the festival
 
 #### F14: Multi-Language Support
@@ -524,8 +524,7 @@ Note: Per Mr. Spear's preference, no serif fonts for body text. Playfair Display
 
 ```bash
 # Required
-ANTHROPIC_API_KEY=sk-ant-...              # Claude Sonnet 4.6
-OPENAI_API_KEY=sk-...                      # text-embedding-3-large
+OPENAI_API_KEY=sk-proj-...                 # GPT-4o Mini (chat) + text-embedding-3-large (vectors)
 UPSTASH_VECTOR_REST_URL=https://...        # Upstash Vector endpoint
 UPSTASH_VECTOR_REST_TOKEN=...              # Upstash Vector auth token
 
@@ -616,7 +615,7 @@ These items could not be scraped from the Wix site and need manual verification 
 | Service | Cost | Notes |
 |---------|------|-------|
 | Vercel (Hobby/Pro) | $0-20/mo | Already on Pro plan |
-| Claude Sonnet 4.6 | ~$5-15/mo | ~1000 msgs/day during festival week |
+| OpenAI GPT-4o Mini | ~$2-8/mo | ~1000 msgs/day during festival week |
 | OpenAI Embeddings | < $0.01 | One-time ingestion cost |
 | Upstash Vector | $0 | Free tier (10K vectors) |
 | Upstash Redis (rate limit) | $0 | Free tier |
@@ -625,7 +624,7 @@ These items could not be scraped from the Wix site and need manual verification 
 
 ### 12.2 Per-Message Cost
 - Embedding query: ~$0.00001
-- Claude Sonnet 4.6 (input + output): ~$0.003-0.01
+- OpenAI GPT-4o Mini (input + output): ~$0.001-0.003
 - Vector search: $0 (included in free tier)
 - **Total per message: ~$0.01**
 
