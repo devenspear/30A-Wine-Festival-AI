@@ -1,0 +1,51 @@
+[
+  {
+    "id": "about-festival",
+    "title": "About the 30A Wine Festival",
+    "content": "The 30A Wine Festival is the 14th annual celebration of wine, food, and community held in Alys Beach, Florida. Underwritten by The Alys Foundation, the festival has been recognized as a USA Today top 10 wine festival. The 2026 festival runs from February 18-22 and features 8 distinct events across multiple venues within the Alys Beach community. All proceeds benefit the Children's Volunteer Health Network (CVHN). The festival brings together world-class wines, premium spirits, renowned chefs, and live entertainment against the stunning backdrop of Alys Beach's white stucco architecture and the Emerald Coast.",
+    "category": "about",
+    "url": "https://www.30awinefestival.com"
+  },
+  {
+    "id": "about-cvhn",
+    "title": "Children's Volunteer Health Network (CVHN)",
+    "content": "The Children's Volunteer Health Network (CVHN) is the charitable beneficiary of the 30A Wine Festival. CVHN provides free dental care, health screenings, and mental wellness services to underserved children in Walton and Okaloosa counties in Northwest Florida. Since its founding, CVHN has delivered over 163,853 procedures, provided more than $9 million in free dental care, and served over 19,377 children. CVHN operates a mobile dental clinic that travels to schools and community locations to provide care where children need it most. Every ticket purchased for the 30A Wine Festival directly supports CVHN's mission to ensure that no child in the community goes without essential health services.",
+    "category": "charity",
+    "url": "https://www.cvhnkids.org"
+  },
+  {
+    "id": "about-alys-beach",
+    "title": "About Alys Beach",
+    "content": "Alys Beach is a premier planned community located on Scenic Highway 30A along Florida's Emerald Coast. The community is renowned for its distinctive white stucco architecture inspired by Mediterranean, Bermuda, and Moorish design traditions, all master-planned by DPZ CoDesign. Alys Beach features cobblestone streets, lush courtyards, serene pools, and pristine Gulf of Mexico beaches. The address is 9581 E County Highway 30A, Alys Beach, FL 32461. The community is situated between Panama City Beach and Destin, making it accessible from both Northwest Florida Beaches International Airport (ECP, ~30 minutes) and Destin-Fort Walton Beach Airport (VPS, ~45 minutes).",
+    "category": "location",
+    "url": "https://www.alysbeach.com"
+  },
+  {
+    "id": "social-media",
+    "title": "30A Wine Festival Social Media",
+    "content": "Follow the 30A Wine Festival on social media for the latest updates, behind-the-scenes content, and event highlights. Instagram: @30awinefest. Facebook: @30awinefest. Twitter: @30awinefest. Use the festival hashtags to share your experience and connect with other attendees.",
+    "category": "social",
+    "url": "https://www.instagram.com/30awinefest"
+  },
+  {
+    "id": "contact-information",
+    "title": "Contact Information",
+    "content": "For questions about the 30A Wine Festival, contact the Alys Beach events team. Email: events@alysbeach.com. Phone: (850) 745-2951. For media inquiries, professional photography or videography requests, and sponsorship opportunities, please email events@alysbeach.com. Tickets are available online only at 30awinefestival.com through BigTickets.",
+    "category": "contact",
+    "url": "https://www.30awinefestival.com"
+  },
+  {
+    "id": "post-festival",
+    "title": "Post-Festival Information",
+    "content": "The 30A Wine Festival AI chatbot remains active for one week following the conclusion of the festival (through March 1, 2026). During this period, the chatbot can help with post-event questions, provide information about CVHN, and share details about Alys Beach. For questions beyond this period, please contact events@alysbeach.com or visit 30awinefestival.com for information about future festivals.",
+    "category": "general",
+    "url": "https://www.30awinefestival.com"
+  },
+  {
+    "id": "the-alys-foundation",
+    "title": "The Alys Foundation",
+    "content": "The 30A Wine Festival is underwritten by The Alys Foundation, the philanthropic arm of the Alys Beach community. The Alys Foundation supports arts, culture, education, and health initiatives in the 30A region. Through the wine festival and other events, The Alys Foundation channels resources to organizations like CVHN that serve the local community.",
+    "category": "about",
+    "url": "https://www.30awinefestival.com"
+  }
+]

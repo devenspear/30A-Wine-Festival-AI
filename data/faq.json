@@ -1,0 +1,122 @@
+[
+  {
+    "id": "age-requirement",
+    "question": "What is the age requirement for the 30A Wine Festival?",
+    "answer": "All guests must be 21 years of age or older to attend any 30A Wine Festival event. Valid government-issued photo ID is required for entry.",
+    "category": "policies"
+  },
+  {
+    "id": "dress-code-general",
+    "question": "What is the dress code for the festival events?",
+    "answer": "The dress code varies by event. Bourbon, Beer & Butts is casual and comfortable. The Grand Tasting calls for elevated cocktail attire — the 2026 theme is India/South Asia, so colorful and elegant pieces are encouraged. Rosé & Croquet has an all-white dress code. The Wine Dinner calls for elegant evening attire. Gospel Brunch is smart casual Sunday brunch attire. Oysters + Champagne and Tapas & Tequila are smart casual to dressy.",
+    "category": "dress-code"
+  },
+  {
+    "id": "dress-code-rose-croquet",
+    "question": "What should I wear to Rosé & Croquet?",
+    "answer": "Guests are encouraged to wear all white attire for the Rosé & Croquet event. Think elegant garden party — white sundresses, white linen suits, white hats, and festive accessories.",
+    "category": "dress-code"
+  },
+  {
+    "id": "dress-code-grand-tasting",
+    "question": "What should I wear to the Grand Tasting?",
+    "answer": "The Grand Tasting calls for elevated cocktail attire. The 2026 theme is India and South Asia, so guests are encouraged to embrace the theme with colorful, elegant pieces. Think bold patterns, rich fabrics, and festive accessories inspired by South Asian culture.",
+    "category": "dress-code"
+  },
+  {
+    "id": "dress-code-bbq",
+    "question": "What should I wear to Bourbon, Beer & Butts?",
+    "answer": "Bourbon, Beer & Butts is the most casual event of the festival. Comfortable, casual attire is appropriate — think jeans, boots, and relaxed outfits suitable for an outdoor barbecue with live music.",
+    "category": "dress-code"
+  },
+  {
+    "id": "what-to-bring",
+    "question": "What can I bring to the festival events?",
+    "answer": "Guests may bring purses and small bags, though all bags are subject to check at entry. Personal cameras and phones are welcome for capturing memories at the events.",
+    "category": "policies"
+  },
+  {
+    "id": "prohibited-items",
+    "question": "What items are not allowed at the festival?",
+    "answer": "Guests may not bring outside alcohol, chairs, or weapons to any festival event. Professional photography and videography equipment requires prior approval — contact events@alysbeach.com for media credentials and permission.",
+    "category": "policies"
+  },
+  {
+    "id": "parking",
+    "question": "Where do I park for the 30A Wine Festival?",
+    "answer": "Parking for all 30A Wine Festival events is available at the Amphitheatre parking lot, located at the corner of Highway 30A and Somerset Street in Alys Beach. Follow signage and event staff directions upon arrival.",
+    "category": "logistics"
+  },
+  {
+    "id": "rain-policy",
+    "question": "What happens if it rains during the festival?",
+    "answer": "The 30A Wine Festival events go on rain or shine, within reason. Events will proceed as planned in light rain or drizzle. Refunds are only issued in the case of a mandatory evacuation order. The festival team monitors weather closely and will communicate any updates.",
+    "category": "policies"
+  },
+  {
+    "id": "getting-there-airport",
+    "question": "What is the closest airport to the 30A Wine Festival?",
+    "answer": "The closest airport is Northwest Florida Beaches International Airport (ECP), approximately 30 minutes from Alys Beach. Destin-Fort Walton Beach Airport (VPS) is also an option, roughly 45 minutes away. Rental cars, rideshares, and shuttle services are available from both airports.",
+    "category": "travel"
+  },
+  {
+    "id": "getting-there-destin",
+    "question": "How far is the festival from Destin?",
+    "answer": "Alys Beach is approximately 45 minutes east of Destin along Scenic Highway 30A / US-98. The drive follows the beautiful Gulf Coast and is straightforward.",
+    "category": "travel"
+  },
+  {
+    "id": "ticket-purchase",
+    "question": "How do I purchase tickets for the 30A Wine Festival?",
+    "answer": "Tickets are available for purchase online only through BigTickets at 30awinefestival.com. Tickets are sold a la carte — you purchase individual tickets for each event you wish to attend. There are no all-access passes. Please note that most 2026 events are already sold out, with the exception of Tapas & Tequila and the Mixology Seminar.",
+    "category": "tickets"
+  },
+  {
+    "id": "ticket-fees",
+    "question": "Are there additional fees on top of the ticket price?",
+    "answer": "Yes, tickets purchased through BigTickets include processing fees. For example, the $350 Wine Dinner ticket totals $367.47 with fees, and the $275 Oysters + Champagne ticket totals $288.91 with fees. The total price including fees is displayed at checkout.",
+    "category": "tickets"
+  },
+  {
+    "id": "sold-out-events",
+    "question": "Are any events sold out?",
+    "answer": "Yes, as of now the following 2026 events are sold out: Wine Dinner, Oysters + Champagne, Bourbon Beer & Butts, Grand Tasting, Gospel Brunch, and Rosé & Croquet. Tapas & Tequila still has tickets available, and the Mixology Seminar details are still to be announced. Check 30awinefestival.com for the latest availability.",
+    "category": "tickets"
+  },
+  {
+    "id": "contact-info",
+    "question": "How do I contact the festival organizers?",
+    "answer": "You can reach the 30A Wine Festival team by email at events@alysbeach.com or by phone at (850) 745-2951. For media and professional photography inquiries, contact events@alysbeach.com.",
+    "category": "general"
+  },
+  {
+    "id": "charitable-beneficiary",
+    "question": "Does the 30A Wine Festival support a charity?",
+    "answer": "Yes, the 30A Wine Festival benefits the Children's Volunteer Health Network (CVHN). CVHN provides free dental care, health screenings, and mental wellness services to underserved children in Walton and Okaloosa counties in Northwest Florida. Since its founding, CVHN has provided over 163,853 procedures, more than $9 million in free dental care, and has served over 19,377 children through its programs including a mobile dental clinic.",
+    "category": "general"
+  },
+  {
+    "id": "refund-policy",
+    "question": "Can I get a refund on my tickets?",
+    "answer": "Refunds are generally not available for 30A Wine Festival tickets. The only exception is in the case of a mandatory evacuation, in which case refunds will be issued. For specific questions about your ticket purchase, contact events@alysbeach.com or (850) 745-2951.",
+    "category": "tickets"
+  },
+  {
+    "id": "croquet-tournament",
+    "question": "How do I sign up for the croquet tournament at Rosé & Croquet?",
+    "answer": "The croquet tournament at the Rosé & Croquet event is available as an add-on for $300 on top of the base event ticket. You can add the tournament option when purchasing your Rosé & Croquet ticket through BigTickets at 30awinefestival.com. Note that the Rosé & Croquet event is currently sold out.",
+    "category": "tickets"
+  },
+  {
+    "id": "event-schedule",
+    "question": "What is the festival schedule?",
+    "answer": "The 2026 30A Wine Festival runs from Wednesday, February 18 through Sunday, February 22. Wednesday: Wine Dinner (6-9 PM). Thursday: Oysters + Champagne and Tapas & Tequila (both 6-8 PM). Friday: Mixology Seminar (time TBD) and Bourbon, Beer & Butts (6:30-9 PM). Saturday: Grand Tasting (3:30-6:30 PM). Sunday: Gospel Brunch (10 AM-12 PM) and Rosé & Croquet (12-3 PM).",
+    "category": "logistics"
+  },
+  {
+    "id": "alys-beach-location",
+    "question": "Where exactly is Alys Beach?",
+    "answer": "Alys Beach is located at 9581 E County Highway 30A, Alys Beach, FL 32461, along the scenic Emerald Coast of Northwest Florida. It is situated between Panama City Beach and Destin on the famous Highway 30A corridor.",
+    "category": "travel"
+  }
+]

@@ -1,0 +1,179 @@
+[
+  {
+    "id": "wine-dinner",
+    "name": "Wine Dinner",
+    "date": "2026-02-18",
+    "day": "Wednesday",
+    "timeStart": "6:00 PM",
+    "timeEnd": "9:00 PM",
+    "venue": "Red Loggia at Caliza Restaurant",
+    "description": "An exclusive multi-course wine dinner at the stunning Red Loggia at Caliza Restaurant. Enjoy expertly paired wines with a curated culinary experience in one of Alys Beach's most iconic dining venues.",
+    "price": 350,
+    "totalWithFees": 367.47,
+    "status": "SOLD OUT",
+    "dressCode": "Elegant evening attire",
+    "highlights": [
+      "Multi-course dinner with curated wine pairings",
+      "Intimate setting at Caliza Restaurant's Red Loggia",
+      "Expert sommeliers guide each course pairing"
+    ],
+    "url": "https://www.30awinefestival.com/events/wine-dinner",
+    "presenter": null
+  },
+  {
+    "id": "oysters-champagne",
+    "name": "Oysters + Champagne",
+    "date": "2026-02-19",
+    "day": "Thursday",
+    "timeStart": "6:00 PM",
+    "timeEnd": "8:00 PM",
+    "venue": "Arboleda Park",
+    "description": "Savor premium oysters paired with exquisite champagnes at Arboleda Park. Presented by Garden & Gun, this evening celebrates the finer things with a coastal twist.",
+    "price": 275,
+    "totalWithFees": 288.91,
+    "status": "SOLD OUT",
+    "dressCode": "Smart casual to dressy",
+    "highlights": [
+      "Premium oyster varieties from top purveyors",
+      "Curated champagne selections",
+      "Presented by Garden & Gun",
+      "Beautiful park setting in Alys Beach"
+    ],
+    "url": "https://www.30awinefestival.com/events/oysters-+-champagne",
+    "presenter": "Presented by Garden & Gun"
+  },
+  {
+    "id": "tapas-tequila",
+    "name": "Tapas & Tequila",
+    "date": "2026-02-19",
+    "day": "Thursday",
+    "timeStart": "6:00 PM",
+    "timeEnd": "8:00 PM",
+    "venue": "Papilio Park",
+    "description": "Experience a vibrant evening of handcrafted tapas and premium tequilas at Papilio Park. This lively event pairs bold Latin-inspired flavors with top-shelf tequila and mezcal selections.",
+    "price": 275,
+    "totalWithFees": 288.91,
+    "status": "AVAILABLE",
+    "dressCode": "Smart casual",
+    "highlights": [
+      "Handcrafted tapas from renowned chefs",
+      "Premium tequila and mezcal tastings",
+      "Live entertainment in Papilio Park",
+      "Currently the only event with tickets still available"
+    ],
+    "url": "https://www.30awinefestival.com/events/tapas-&-tequila",
+    "presenter": null
+  },
+  {
+    "id": "mixology-seminar",
+    "name": "Mixology Seminar",
+    "date": "2026-02-20",
+    "day": "Friday",
+    "timeStart": null,
+    "timeEnd": null,
+    "venue": null,
+    "description": "A hands-on mixology seminar where guests learn craft cocktail techniques from expert bartenders. Details on time and venue are still to be determined.",
+    "price": null,
+    "totalWithFees": null,
+    "status": "AVAILABLE",
+    "dressCode": "Smart casual",
+    "highlights": [
+      "Hands-on cocktail crafting experience",
+      "Learn from expert mixologists",
+      "Details to be announced"
+    ],
+    "url": "https://www.30awinefestival.com/events/mixology-seminar",
+    "presenter": null
+  },
+  {
+    "id": "bourbon-beer-butts",
+    "name": "Bourbon, Beer & Butts",
+    "date": "2026-02-20",
+    "day": "Friday",
+    "timeStart": "6:30 PM",
+    "timeEnd": "9:00 PM",
+    "venue": "Central Park",
+    "description": "A lively evening of premium bourbons, craft beers, and smoked barbecue in Central Park. Featuring a live performance by Fireside Collective, this is one of the festival's most popular and spirited events.",
+    "price": 300,
+    "totalWithFees": 315.09,
+    "status": "SOLD OUT",
+    "dressCode": "Casual, comfortable attire",
+    "highlights": [
+      "Premium bourbon and craft beer selections",
+      "Smoked barbecue from top pitmasters",
+      "Live music by Fireside Collective",
+      "Presented by Chancey Architecture & Interior Design"
+    ],
+    "url": "https://www.30awinefestival.com/events/bourbon,-beer-&-butts",
+    "presenter": "Presented by Chancey Architecture & Interior Design",
+    "performer": "Fireside Collective"
+  },
+  {
+    "id": "grand-tasting",
+    "name": "Grand Tasting",
+    "date": "2026-02-21",
+    "day": "Saturday",
+    "timeStart": "3:30 PM",
+    "timeEnd": "6:30 PM",
+    "venue": "South Charles Street to Gulf Green",
+    "description": "The signature event of the 30A Wine Festival, the Grand Tasting features an extraordinary selection of wines, spirits, and culinary creations along South Charles Street and Gulf Green. The 2026 theme celebrates the flavors and culture of India and South Asia.",
+    "price": 450,
+    "totalWithFees": 472.23,
+    "status": "SOLD OUT",
+    "dressCode": "Elevated cocktail attire; embrace the India/South Asia theme with colorful and elegant pieces",
+    "highlights": [
+      "2026 theme: India and South Asia",
+      "Sprawling tasting along South Charles Street to Gulf Green",
+      "Hundreds of wines, spirits, and culinary creations",
+      "The flagship event of the festival"
+    ],
+    "url": "https://www.30awinefestival.com/events/grand-tasting",
+    "presenter": null,
+    "theme": "India / South Asia"
+  },
+  {
+    "id": "gospel-brunch",
+    "name": "Gospel Brunch",
+    "date": "2026-02-22",
+    "day": "Sunday",
+    "timeStart": "10:00 AM",
+    "timeEnd": "12:00 PM",
+    "venue": "Gulf Green",
+    "description": "A soulful Sunday morning brunch featuring live gospel music on Gulf Green. Enjoy a Southern-inspired brunch spread with craft cocktails as uplifting performances set the tone for the festival's closing day.",
+    "price": 175,
+    "totalWithFees": 184.15,
+    "status": "SOLD OUT",
+    "dressCode": "Sunday brunch attire; smart casual",
+    "highlights": [
+      "Live gospel music performances",
+      "Southern-inspired brunch menu",
+      "Beautiful Gulf Green setting",
+      "A beloved festival tradition"
+    ],
+    "url": "https://www.30awinefestival.com/events/gospel-brunch",
+    "presenter": null
+  },
+  {
+    "id": "rose-croquet",
+    "name": "Rosé & Croquet",
+    "date": "2026-02-22",
+    "day": "Sunday",
+    "timeStart": "12:00 PM",
+    "timeEnd": "3:00 PM",
+    "venue": "Central Park",
+    "description": "The festival's grand finale — a garden-party-style afternoon of rosé wines and croquet on Central Park. Guests are encouraged to wear all white for this elegant closing event. A competitive croquet tournament is available as an add-on.",
+    "price": 300,
+    "totalWithFees": 315.09,
+    "status": "SOLD OUT",
+    "dressCode": "All white attire encouraged",
+    "highlights": [
+      "All-white dress code for an elegant garden party vibe",
+      "Premium rosé wine selections",
+      "Croquet tournament add-on available ($300)",
+      "The festival's closing celebration"
+    ],
+    "url": "https://www.30awinefestival.com/events/rose-&-croquet",
+    "presenter": null,
+    "croquetTournamentAddOn": 300
+  }
+]

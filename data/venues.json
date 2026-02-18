@@ -1,0 +1,61 @@
+[
+  {
+    "id": "alys-beach",
+    "name": "Alys Beach",
+    "description": "Alys Beach is a premier planned community on Scenic Highway 30A in Northwest Florida, known for its distinctive white stucco architecture inspired by Mediterranean, Bermuda, and Moorish design traditions. Designed by DPZ CoDesign, the community features cobblestone streets, lush courtyards, and stunning Gulf of Mexico views. Alys Beach serves as the home for the annual 30A Wine Festival.",
+    "address": "9581 E County Highway 30A, Alys Beach, FL 32461",
+    "architecture": "White stucco Mediterranean, Bermuda, and Moorish-inspired design by DPZ CoDesign",
+    "parking": "Amphitheatre parking lot at the corner of Highway 30A and Somerset Street",
+    "events": []
+  },
+  {
+    "id": "red-loggia-caliza",
+    "name": "Red Loggia at Caliza Restaurant",
+    "description": "The Red Loggia is a striking open-air dining space at Caliza Restaurant, one of Alys Beach's signature dining destinations. Known for its dramatic red architecture and poolside ambiance, the Red Loggia provides an intimate and luxurious setting for the Wine Dinner.",
+    "events": [
+      "Wine Dinner"
+    ]
+  },
+  {
+    "id": "arboleda-park",
+    "name": "Arboleda Park",
+    "description": "Arboleda Park is a charming green space within Alys Beach, surrounded by the community's signature white architecture and lush landscaping. It provides an elegant outdoor setting for the Oysters + Champagne event.",
+    "events": [
+      "Oysters + Champagne"
+    ]
+  },
+  {
+    "id": "papilio-park",
+    "name": "Papilio Park",
+    "description": "Papilio Park is a vibrant gathering space in Alys Beach, named after the butterfly genus. The park's intimate layout and beautiful surroundings make it an ideal venue for the Tapas & Tequila event.",
+    "events": [
+      "Tapas & Tequila"
+    ]
+  },
+  {
+    "id": "central-park",
+    "name": "Central Park",
+    "description": "Central Park is one of Alys Beach's largest green spaces, offering ample room for larger festival events. Its expansive lawn and scenic setting host both the Bourbon, Beer & Butts event and the Rosé & Croquet closing celebration.",
+    "events": [
+      "Bourbon, Beer & Butts",
+      "Rosé & Croquet"
+    ]
+  },
+  {
+    "id": "south-charles-street-gulf-green",
+    "name": "South Charles Street to Gulf Green",
+    "description": "The route from South Charles Street to Gulf Green is transformed into the festival's grandest thoroughfare for the Grand Tasting. This iconic stretch showcases Alys Beach's white stucco architecture as a backdrop for hundreds of wine, spirit, and culinary stations.",
+    "events": [
+      "Grand Tasting"
+    ]
+  },
+  {
+    "id": "gulf-green",
+    "name": "Gulf Green",
+    "description": "Gulf Green is a picturesque lawn area near the Gulf of Mexico within Alys Beach. With ocean breezes and stunning coastal views, it serves as the venue for the Gospel Brunch and as part of the Grand Tasting route.",
+    "events": [
+      "Gospel Brunch",
+      "Grand Tasting"
+    ]
+  }
+]
