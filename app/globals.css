@@ -245,8 +245,21 @@ body {
   cursor: pointer;
   border-radius: var(--border-radius-md);
   background: var(--bg-suggestion);
-  border: 1px solid var(--border-card);
+  border: 1.5px solid var(--border-card);
   box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.suggestion-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
 }
 
 .suggestion-card:hover {
@@ -329,23 +342,26 @@ body {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(139, 34, 82, 0.3);
 }
 
 .send-button:hover:not(:disabled) {
   background-color: var(--accent-hover);
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 3px 8px rgba(139, 34, 82, 0.4);
 }
 
 .send-button:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* Badge Styles */
