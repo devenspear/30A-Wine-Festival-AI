@@ -41,8 +41,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="safe-bottom">
-        {children}
+      <body className="safe-bottom desktop-wrapper">
+        <div className="phone-frame">
+          <div className="phone-notch" />
+          <div className="phone-content">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

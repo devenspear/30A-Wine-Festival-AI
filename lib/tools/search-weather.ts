@@ -94,11 +94,16 @@ export const searchWeather = tool({
         lines.push(`${dayName}: ${condition}, High ${high}°F / Low ${low}°F, ${rainChance}% chance of rain, Wind up to ${wind} mph`);
       }
 
-      // Sunrise/sunset for today
+      // Sunrise/sunset for today (API returns local time strings like "2026-02-18T06:21")
       if (daily.sunrise[0] && daily.sunset[0]) {
-        const sunrise = new Date(daily.sunrise[0]).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
-        const sunset = new Date(daily.sunset[0]).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
-        lines.push(`\nToday's sunrise: ${sunrise} | Sunset: ${sunset}`);
+        const formatLocalTime = (isoLocal: string) => {
+          const timePart = isoLocal.split('T')[1]; // "06:21"
+          const [h, m] = timePart.split(':').map(Number);
+          const ampm = h >= 12 ? 'PM' : 'AM';
+          const hour12 = h % 12 || 12;
+          return `${hour12}:${m.toString().padStart(2, '0')} ${ampm}`;
+        };
+        lines.push(`\nToday's sunrise: ${formatLocalTime(daily.sunrise[0])} CT | Sunset: ${formatLocalTime(daily.sunset[0])} CT`);
       }
 
       return lines.join('\n');
