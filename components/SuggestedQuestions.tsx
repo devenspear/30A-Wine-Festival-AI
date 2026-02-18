@@ -25,7 +25,8 @@ const item = {
 export default function SuggestedQuestions({ questions, onSelect }: SuggestedQuestionsProps) {
   return (
     <motion.div
-      className="grid grid-cols-2 gap-2 px-4 max-w-[var(--chat-max-width)] mx-auto"
+      className="grid grid-cols-2 gap-3 px-4"
+      style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}
       variants={container}
       initial="hidden"
       animate="show"
@@ -34,12 +35,7 @@ export default function SuggestedQuestions({ questions, onSelect }: SuggestedQue
         <motion.button
           key={i}
           variants={item}
-          className="suggestion-card text-left px-3 py-3 rounded-xl"
-          style={{
-            background: 'var(--bg-suggestion)',
-            border: '1px solid var(--border-card)',
-            boxShadow: 'var(--shadow-sm)',
-          }}
+          className="suggestion-card text-left px-4 py-3"
           onClick={() => onSelect(q.text)}
         >
           <span className="text-lg block mb-1">{q.emoji}</span>

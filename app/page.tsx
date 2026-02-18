@@ -151,7 +151,7 @@ export default function Home() {
         className="flex-1 overflow-y-auto"
         style={{ paddingTop: '16px', paddingBottom: '16px' }}
       >
-        <div className="max-w-[var(--chat-max-width)] mx-auto space-y-4">
+        <div className="space-y-4" style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }}>
           {/* Welcome Message */}
           {messages.length === 0 && (
             <div className="px-4 py-6 text-center">
@@ -244,7 +244,7 @@ export default function Home() {
       >
         <form
           onSubmit={handleSubmit}
-          className="max-w-[var(--chat-max-width)] mx-auto flex items-end gap-2"
+          style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }} className=" flex items-end gap-2"
         >
           <textarea
             ref={inputRef}
@@ -272,7 +272,7 @@ export default function Home() {
         </form>
 
         {/* Footer */}
-        <div className="max-w-[var(--chat-max-width)] mx-auto mt-2 text-center footer-text">
+        <div style={{ maxWidth: 'var(--chat-max-width)', marginLeft: 'auto', marginRight: 'auto' }} className=" mt-2 text-center footer-text">
           <span>
             Benefiting{' '}
             <a href="https://www.30awinefestival.com" target="_blank" rel="noopener noreferrer">
