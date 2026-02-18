@@ -1,5 +1,5 @@
 import { streamText } from 'ai';
-import { anthropic } from '@ai-sdk/anthropic';
+import { openai } from '@ai-sdk/openai';
 import { config } from '@/lib/config';
 import { getSystemPrompt } from '@/lib/system-prompt';
 import { festivalTools } from '@/lib/tools';
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     const today = new Date().toISOString().split('T')[0];
 
     const result = streamText({
-      model: anthropic(config.MODEL_ID),
+      model: openai(config.MODEL_ID),
       system: getSystemPrompt(today),
       messages,
       tools: festivalTools,

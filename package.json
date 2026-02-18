@@ -1,6 +1,6 @@
 {
   "name": "30a-wine-festival-ai",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "1.2.12",
+    "@ai-sdk/openai": "1.3.24",
     "@ai-sdk/react": "1.2.12",
     "@upstash/ratelimit": "^2.0.7",
     "@upstash/redis": "^1.34.0",
