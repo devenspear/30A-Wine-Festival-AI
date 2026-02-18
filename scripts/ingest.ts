@@ -152,7 +152,7 @@ async function main() {
       `Question: ${faq.question}`,
       `Answer: ${faq.answer}`,
       `Category: ${faq.category}`,
-      `Keywords: ${faq.keywords.join(', ')}`,
+      ...(faq.keywords ? [`Keywords: ${faq.keywords.join(', ')}`] : []),
     ].join('\n');
 
     await index.upsert({

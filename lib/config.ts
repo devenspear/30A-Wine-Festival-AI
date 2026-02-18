@@ -19,7 +19,7 @@ export const config = {
   CHARITY_NAME: "Children's Volunteer Health Network (CVHN)",
 
   // AI model configuration
-  MODEL_ID: 'claude-sonnet-4-5-20250514',
+  MODEL_ID: 'claude-3-5-haiku-latest',
   MAX_MESSAGES_PER_SESSION: 50,
   MAX_TOKENS: 1024,
   TEMPERATURE: 0.7,
