@@ -47,5 +47,40 @@
     "content": "The 30A Wine Festival is underwritten by The Alys Foundation, the philanthropic arm of the Alys Beach community. The Alys Foundation supports arts, culture, education, and health initiatives in the 30A region. Through the wine festival and other events, The Alys Foundation channels resources to organizations like CVHN that serve the local community.",
     "category": "about",
     "url": "https://www.30awinefestival.com"
+  },
+  {
+    "id": "dining-near-alys-beach",
+    "title": "Dining Near Alys Beach & 30A",
+    "content": "There are excellent dining options near Alys Beach along Scenic Highway 30A. Within Alys Beach: Caliza Restaurant offers upscale coastal dining (also hosts the Wine Dinner). George's at Alys Beach serves Southern-inspired cuisine with craft cocktails. Nearby on 30A: La Crema Tapas & Chocolate in Rosemary Beach (5 min east) for Spanish tapas. Pescado Seafood Grill & Rooftop Bar in Rosemary Beach for Gulf seafood. Cafe Thirty-A in Seagrove Beach (10 min west) is a 30A fine dining institution. Stinky's Fish Camp in Dune Allen Beach (15 min west) for casual seafood. The Raw & The Cooked in Grayton Beach (12 min west). For quick bites: Fonville Press in Alys Beach for coffee and pastries. NEAT Bottle Shop + Tasting Room in Alys Beach for wine and small plates.",
+    "category": "dining",
+    "url": "https://www.alysbeach.com"
+  },
+  {
+    "id": "hotels-accommodations",
+    "title": "Hotels & Accommodations Near Alys Beach",
+    "content": "Accommodations near the 30A Wine Festival: Alys Beach does not have a traditional hotel, but there are vacation rental homes available within the community through Alys Beach Rentals (alysbeach.com/rentals) and VRBO/Airbnb. Nearby hotels: The Pearl Hotel in Rosemary Beach (5 min east) is the closest boutique hotel with a pool, spa, and restaurant. WaterColor Inn & Resort (10 min west) is a luxury resort with beach access and multiple restaurants. The Henderson Beach Resort in Destin (25 min west) offers beachfront luxury. Embassy Suites by Hilton in Destin (30 min west) and Holiday Inn Express in Santa Rosa Beach (15 min west) are more affordable options. Many festival attendees rent homes in Alys Beach, Rosemary Beach, Seacrest Beach, or WaterColor for the week. Book early — festival week fills up fast.",
+    "category": "accommodations",
+    "url": "https://www.alysbeach.com/rentals"
+  },
+  {
+    "id": "airports-transportation",
+    "title": "Airports & Getting to Alys Beach",
+    "content": "Two airports serve the Alys Beach area. Northwest Florida Beaches International Airport (ECP) in Panama City Beach is the closest at about 25-30 minutes west. It has direct flights from Atlanta, Dallas, Houston, Nashville, Denver, and other cities. Destin-Fort Walton Beach Airport (VPS) is about 40-45 minutes west and has flights from Atlanta, Dallas, Charlotte, and other hubs. From either airport, you will need a rental car or rideshare. Rental cars are available at both airports from major companies (Hertz, Avis, Enterprise, etc.). Uber and Lyft operate in the 30A area but availability can be limited, especially late at night. Consider renting a car for the most flexibility. Golf cart rentals are also popular for getting around the 30A communities. If driving, Alys Beach is located at 9581 E County Highway 30A, Panama City Beach, FL 32461.",
+    "category": "transportation",
+    "url": "https://www.alysbeach.com"
+  },
+  {
+    "id": "things-to-do-30a",
+    "title": "Things to Do on 30A Beyond the Festival",
+    "content": "Scenic Highway 30A offers plenty to do beyond the wine festival. Beaches: The Emerald Coast has stunning white sand beaches and clear turquoise waters. Alys Beach has a private beach for residents and guests. Public beach access is available at nearby Seacrest, Ed Walline, and Blue Mountain Beach. Outdoor activities: Rent bikes and ride the 30A multi-use path that stretches 19 miles along the coast. Kayak or paddleboard in the rare coastal dune lakes (Western Lake, Eastern Lake, Draper Lake). Visit Point Washington State Forest for hiking trails. Shopping: The Hub on 30A in WaterColor has boutiques and restaurants. Rosemary Beach town center has upscale shops. The Shops at Grayton for local art and gifts. Seaside (15 min west) is famous for its pastel-colored homes and was the filming location for The Truman Show. Nature: Deer Lake State Park for a quiet beach walk. Grayton Beach State Park is consistently rated one of America's best beaches. Topsail Hill Preserve State Park for pristine dunes and nature trails.",
+    "category": "area-activities",
+    "url": "https://www.visit30a.com"
+  },
+  {
+    "id": "uber-lyft-rideshare",
+    "title": "Rideshare & Local Transportation on 30A",
+    "content": "Uber and Lyft both operate along the 30A corridor but availability can be limited, especially during peak festival hours and late evenings. Wait times of 15-30 minutes are common. Tips for getting around during the festival: Within Alys Beach, everything is walkable — all festival venues are within a 10-minute walk. For getting to/from Alys Beach, a rental car provides the most flexibility. Golf cart rentals are popular on 30A — companies like 30A Escapes and Peddlers Pavilion rent them by the day or week. Some vacation rentals include golf carts. For the Wine Dinner and other evening events, consider having a designated driver or pre-booking a rideshare. There is no public transit along 30A. Parking at Alys Beach is available along the surrounding streets and in designated lots — arrive early for popular events.",
+    "category": "transportation",
+    "url": "https://www.alysbeach.com"
   }
 ]
